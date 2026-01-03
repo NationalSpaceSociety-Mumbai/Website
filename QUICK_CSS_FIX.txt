@@ -1,0 +1,44 @@
+# 🚨 QUICK FIX - No Styles Showing
+
+## Run These Commands:
+
+```bash
+cd "D:\Claude\Projects\NSS Mumbai website\Website"
+
+# 1. Clean everything
+rm -rf .next out node_modules package-lock.json
+
+# 2. Reinstall
+npm install
+
+# 3. Test
+npm run dev
+```
+
+## Check: http://localhost:3000
+
+✅ **HAS STYLES?** → Great! Run `npm run build` then push to GitHub
+
+❌ **NO STYLES?** → 
+
+1. Press F12 in browser
+2. Check Console for errors
+3. Share the error message
+
+---
+
+## If Build Works But GitHub Doesn't:
+
+The issue is with static export. Try:
+
+```bash
+npm run build
+cd out
+npx serve
+```
+
+Check if the served version has styles.
+
+---
+
+**See `CSS_NOT_LOADING_FIX.md` for complete troubleshooting!**
