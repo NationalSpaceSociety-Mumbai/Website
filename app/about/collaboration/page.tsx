@@ -1,6 +1,6 @@
 'use client'
 
-import { Globe, Handshake, Building2, Users2, ExternalLink } from 'lucide-react'
+import { Globe, HeartHandshake, Building2, Users, ExternalLink } from 'lucide-react'
 
 export default function CollaborationPage() {
   const collaborations = [
@@ -17,13 +17,13 @@ export default function CollaborationPage() {
       examples: ['Leading Universities', 'Research Centers', 'Student Programs']
     },
     {
-      icon: Handshake,
+      icon: HeartHandshake,
       title: 'Industry Partners',
       description: 'Collaborating with aerospace companies and technology firms driving innovation.',
       examples: ['Aerospace Companies', 'Tech Startups', 'Space Industry']
     },
     {
-      icon: Users2,
+      icon: Users,
       title: 'Government Relations',
       description: 'Engaging with diplomatic and government officials to strengthen space policy and cooperation.',
       examples: ['US Embassy', 'Consulate General', 'Policy Makers']
@@ -36,7 +36,7 @@ export default function CollaborationPage() {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="w-20 h-20 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center mx-auto mb-6">
-            <Handshake className="w-10 h-10 text-white" />
+            <HeartHandshake className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-6xl font-bold mb-6 gradient-text">
             Collaborations

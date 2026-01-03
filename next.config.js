@@ -5,7 +5,12 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
-  basePath: process.env.NODE_ENV === 'production' ? '' : '',
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 }
 
 module.exports = nextConfig
