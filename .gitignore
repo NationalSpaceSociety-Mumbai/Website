@@ -45,3 +45,6 @@ Thumbs.db
 
 # GitHub Pages
 .nojekyll
+
+# Custom domain (not using)
+public/CNAME

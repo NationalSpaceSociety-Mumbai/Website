@@ -1,0 +1,51 @@
+# 🎯 NSS Mumbai Website - Deploy Commands
+
+## ⚡ Quick Deploy (Copy & Paste)
+
+```bash
+# Navigate to project
+cd "D:\Claude\Projects\NSS Mumbai website\Website"
+
+# Generate lock file (REQUIRED!)
+npm install
+
+# Initialize git (if not already done)
+git init
+
+# Stage all files
+git add .
+
+# Commit
+git commit -m "Initial commit: NSS Mumbai website"
+
+# Add GitHub remote (REPLACE with your URL)
+git remote add origin https://github.com/YOUR_USERNAME/REPO_NAME.git
+
+# Push to GitHub
+git push -u origin main
+```
+
+---
+
+## 🌐 Your Website URL
+
+```
+https://YOUR_USERNAME.github.io/REPO_NAME/
+```
+
+---
+
+## ✅ Don't Forget!
+
+1. **Run `npm install` FIRST** - This creates package-lock.json
+2. **Replace YOUR_USERNAME and REPO_NAME** in the commands
+3. **Enable GitHub Pages** in Settings → Pages → Source: "GitHub Actions"
+4. **Wait 2-3 minutes** for deployment
+
+---
+
+## 🎉 That's It!
+
+Your website will be live at the GitHub Pages URL above.
+
+**Questions?** See `DEPLOY_FIX.md` or `QUICK_FIX.md`
