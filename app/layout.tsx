@@ -18,9 +18,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <div className="min-h-screen bg-gradient-to-br from-space-dark via-space-navy to-space-dark">
+    <html lang="en" className="dark">
+      <body className={`${inter.className} antialiased`}>
+        <div className="min-h-screen" style={{ 
+          background: 'linear-gradient(to bottom right, #0a0e27, #1a1f3a, #0a0e27)',
+          color: 'white'
+        }}>
           <Navbar />
           <main>{children}</main>
           <Footer />

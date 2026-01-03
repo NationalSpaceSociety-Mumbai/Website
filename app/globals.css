@@ -3,23 +3,19 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-  }
-}
-
-@layer base {
   * {
-    /* @apply border-border; */
+    @apply border-gray-200;
   }
+  
   body {
-    @apply bg-background text-foreground;
+    @apply m-0 p-0;
+    background: linear-gradient(to bottom right, #0a0e27, #1a1f3a, #0a0e27);
+    color: white;
+    min-height: 100vh;
+  }
+  
+  html {
+    scroll-behavior: smooth;
   }
 }
 
@@ -41,16 +37,14 @@
   background: linear-gradient(180deg, #1d4ed8, #7c3aed);
 }
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Gradient text */
 .gradient-text {
-  @apply bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent;
-  animation: gradient-shift 8s ease infinite;
+  background: linear-gradient(to right, #60a5fa, #a78bfa, #22d3ee);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
 }
 
 @keyframes gradient-shift {
@@ -64,7 +58,10 @@ html {
 
 /* Glass effect */
 .glass {
-  @apply bg-white/10 backdrop-blur-md border border-white/20;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
@@ -125,4 +122,10 @@ a {
 /* Prevent text selection on buttons */
 button {
   user-select: none;
+}
+
+/* Ensure proper text rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

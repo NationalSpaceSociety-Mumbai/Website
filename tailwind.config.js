@@ -8,8 +8,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
         space: {
           dark: '#0a0e27',
           navy: '#1a1f3a',
