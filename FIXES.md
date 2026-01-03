@@ -6,8 +6,61 @@ This document tracks all fixes, improvements, and changes made to the website co
 
 ## Table of Contents
 
+- [GitHub Actions Workflow Fix](#github-actions-workflow-fix---january-2026)
 - [CSS Consolidation Fix](#css-consolidation-fix---january-2026)
 - [Pending Improvements](#pending-improvements)
+
+---
+
+## GitHub Actions Workflow Fix - January 2026
+
+**Date:** January 3, 2026  
+**Issue:** PR build failing with webpack CLI error  
+**Status:** ✅ Completed
+
+### Problem
+
+The GitHub Actions workflow `webpack.yml` was incorrectly configured for a Webpack project instead of Next.js:
+
+```
+Error: npm warn exec The following package was not found and will be installed: webpack@5.104.1
+CLI for webpack must be installed.
+Do you want to install 'webpack-cli' (yes/no):
+Error: Process completed with exit code 1.
+```
+
+### Solution
+
+1. Renamed `webpack.yml` → `build.yml`
+2. Updated the workflow to use Next.js build commands
+
+**Before (`webpack.yml`):**
+```yaml
+- name: Build
+  run: |
+    npm install
+    npx webpack
+```
+
+**After (`build.yml`):**
+```yaml
+- name: Install dependencies
+  run: npm ci
+
+- name: Build with Next.js
+  run: npm run build
+
+- name: Check build output
+  run: |
+    echo "Build completed successfully!"
+    ls -la out/
+```
+
+### Other Improvements
+
+- Removed Node.js 22.x from test matrix (20.x is current LTS)
+- Added npm caching for faster installs
+- Changed `npm install` to `npm ci` for reproducible builds
 
 ---
 
@@ -196,6 +249,8 @@ The following improvements are identified but not yet implemented:
 
 | Date | File | Change Type | Description |
 |------|------|-------------|-------------|
+| 2026-01-03 | `.github/workflows/webpack.yml` | Deleted | Removed incorrect webpack workflow |
+| 2026-01-03 | `.github/workflows/build.yml` | Created | New Next.js build workflow |
 | 2026-01-03 | `app/layout.tsx` | Modified | Removed inline styles from `<head>` |
 | 2026-01-03 | `app/globals.css` | Rewritten | Consolidated and organized all CSS |
 | 2026-01-03 | `tailwind.config.js` | Enhanced | Added new animations, gradients, shadows |
