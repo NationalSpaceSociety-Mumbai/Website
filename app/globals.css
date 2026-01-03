@@ -2,7 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Reset and Base Styles */
+/* ===================================
+   CSS Variables (Design Tokens)
+   =================================== */
+:root {
+  /* Space Theme Colors */
+  --color-space-dark: #0a0e27;
+  --color-space-navy: #1a1f3a;
+  --color-space-blue: #2563eb;
+  --color-space-cyan: #06b6d4;
+  --color-space-purple: #8b5cf6;
+  
+  /* Gradient Colors */
+  --gradient-primary: linear-gradient(135deg, var(--color-space-dark) 0%, var(--color-space-navy) 50%, var(--color-space-dark) 100%);
+  --gradient-accent: linear-gradient(90deg, #60a5fa, #a78bfa, #22d3ee);
+  --gradient-button: linear-gradient(to right, var(--color-space-blue), var(--color-space-purple));
+  
+  /* Glass Effect */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-shadow: rgba(31, 38, 135, 0.37);
+  
+  /* Typography */
+  --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* ===================================
+   Reset and Base Styles
+   =================================== */
 *,
 *::before,
 *::after {
@@ -18,25 +45,28 @@ html {
 
 body {
   min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+  background: var(--gradient-primary);
   background-attachment: fixed;
   color: #ffffff;
+  line-height: 1.6;
 }
 
-/* Scrollbar Styling */
+/* ===================================
+   Scrollbar Styling
+   =================================== */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0e27;
+  background: var(--color-space-dark);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #2563eb, #8b5cf6);
+  background: linear-gradient(180deg, var(--color-space-blue), var(--color-space-purple));
   border-radius: 5px;
 }
 
@@ -44,9 +74,80 @@ body {
   background: linear-gradient(180deg, #1d4ed8, #7c3aed);
 }
 
-/* Utility Classes */
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-space-blue) var(--color-space-dark);
+}
+
+/* ===================================
+   Selection Styling
+   =================================== */
+::selection {
+  background-color: rgba(37, 99, 235, 0.5);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: rgba(37, 99, 235, 0.5);
+  color: white;
+}
+
+/* ===================================
+   Typography Base
+   =================================== */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+p {
+  line-height: 1.7;
+}
+
+/* ===================================
+   Link Styles
+   =================================== */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-space-cyan);
+}
+
+/* ===================================
+   Button Reset
+   =================================== */
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+  padding: 0;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+/* ===================================
+   Focus Styles (Accessibility)
+   =================================== */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-space-cyan);
+  outline-offset: 2px;
+}
+
+/* ===================================
+   Utility Classes - Gradients
+   =================================== */
 .gradient-text {
-  background: linear-gradient(90deg, #60a5fa, #a78bfa, #22d3ee);
+  background: var(--gradient-accent);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -54,6 +155,61 @@ body {
   animation: gradient-flow 8s linear infinite;
 }
 
+.gradient-bg {
+  background: var(--gradient-primary);
+}
+
+.gradient-button {
+  background: var(--gradient-button);
+}
+
+/* ===================================
+   Utility Classes - Glass Effect
+   =================================== */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px var(--glass-shadow);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===================================
+   Animations
+   =================================== */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+/* ===================================
+   Keyframes
+   =================================== */
 @keyframes gradient-flow {
   0% {
     background-position: 0% center;
@@ -63,21 +219,8 @@ body {
   }
 }
 
-.glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
 @keyframes float {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0);
   }
   50% {
@@ -85,33 +228,179 @@ body {
   }
 }
 
-/* Selection */
-::selection {
-  background-color: rgba(37, 99, 235, 0.5);
-  color: white;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-/* Links */
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: all 0.3s ease;
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Focus Styles */
-button:focus-visible,
-a:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
-/* Button Reset */
-button {
-  cursor: pointer;
-  font-family: inherit;
-  border: none;
-  background: none;
-  padding: 0;
-  color: inherit;
-  transition: all 0.3s ease;
+/* ===================================
+   Card Styles
+   =================================== */
+.card {
+  @apply glass rounded-2xl p-6 transition-all duration-300;
+}
+
+.card:hover {
+  @apply bg-white/20;
+  transform: translateY(-4px);
+}
+
+.card-interactive {
+  @apply card cursor-pointer;
+}
+
+.card-interactive:hover {
+  transform: scale(1.02);
+}
+
+/* ===================================
+   Button Styles
+   =================================== */
+.btn {
+  @apply px-6 py-3 rounded-full font-semibold transition-all duration-300 inline-flex items-center justify-center gap-2;
+}
+
+.btn-primary {
+  @apply btn bg-gradient-to-r from-blue-600 to-purple-600 text-white;
+}
+
+.btn-primary:hover {
+  @apply from-blue-700 to-purple-700;
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  @apply btn glass text-white;
+}
+
+.btn-secondary:hover {
+  @apply bg-white/20;
+  transform: scale(1.05);
+}
+
+/* ===================================
+   Section Styles
+   =================================== */
+.section {
+  @apply py-20 px-4;
+}
+
+.section-dark {
+  @apply section bg-black/20;
+}
+
+.section-title {
+  @apply text-5xl font-bold text-center mb-4 gradient-text;
+}
+
+.section-divider {
+  @apply h-1 w-32 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mb-16;
+}
+
+/* ===================================
+   Form Styles
+   =================================== */
+.input {
+  @apply w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 transition-all duration-300;
+}
+
+.input:focus {
+  @apply bg-white/15 border-blue-500;
+}
+
+.input:hover {
+  @apply border-white/30;
+}
+
+/* ===================================
+   Responsive Utilities
+   =================================== */
+@media (max-width: 768px) {
+  .section-title {
+    @apply text-3xl;
+  }
+  
+  .hide-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .hide-desktop {
+    display: none;
+  }
+}
+
+/* ===================================
+   Star Animation (for hero section)
+   =================================== */
+.star {
+  @apply absolute w-1 h-1 bg-white rounded-full;
+  animation: twinkle var(--duration, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* ===================================
+   Navigation Active States
+   =================================== */
+.nav-link {
+  @apply text-white font-medium transition-colors duration-300;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  @apply text-blue-400;
+}
+
+/* ===================================
+   Loading States
+   =================================== */
+.skeleton {
+  @apply bg-white/10 rounded animate-pulse;
+}
+
+.loading-spinner {
+  @apply w-8 h-8 border-4 border-white/20 border-t-blue-500 rounded-full;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
