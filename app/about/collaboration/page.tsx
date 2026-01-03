@@ -8,7 +8,7 @@ export default function CollaborationPage() {
       icon: Globe,
       title: 'International Space Agencies',
       description: 'Partnerships with space agencies worldwide to foster knowledge exchange and collaborative missions.',
-      examples: ['ROSCOMOS', 'ISRO', 'NASA Collaborators']
+      examples: ['ROSCOSMOS', 'ISRO', 'NASA Collaborators']
     },
     {
       icon: Building2,
@@ -119,7 +119,7 @@ export default function CollaborationPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-purple-400 mt-1">•</span>
-                    <span>Meeting with ROSCOMOS representatives</span>
+                    <span>Meeting with ROSCOSMOS representatives</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-purple-400 mt-1">•</span>
@@ -169,7 +169,7 @@ export default function CollaborationPage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <a
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-white font-semibold hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105"
+              className="inline-flex items-center gap-2 btn-primary"
             >
               Contact Us
             </a>
@@ -177,7 +177,7 @@ export default function CollaborationPage() {
               href="https://linktr.ee/NSS_USA_Mumbai"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 glass rounded-full text-white font-semibold hover:bg-white/20 transition-all"
+              className="inline-flex items-center gap-2 btn-secondary glass"
             >
               Learn More <ExternalLink className="w-4 h-4" />
             </a>
