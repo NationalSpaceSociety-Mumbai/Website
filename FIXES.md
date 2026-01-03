@@ -6,9 +6,71 @@ This document tracks all fixes, improvements, and changes made to the website co
 
 ## Table of Contents
 
+- [GitHub Pages CSS Not Loading Fix](#github-pages-css-not-loading-fix---january-2026)
 - [GitHub Actions Workflow Fix](#github-actions-workflow-fix---january-2026)
 - [CSS Consolidation Fix](#css-consolidation-fix---january-2026)
 - [Pending Improvements](#pending-improvements)
+
+---
+
+## GitHub Pages CSS Not Loading Fix - January 2026
+
+**Date:** January 3, 2026  
+**Issue:** CSS and JS not loading on deployed GitHub Pages site  
+**Status:** ✅ Completed
+
+### Problem
+
+After deploying to `https://nationalspacesociety-mumbai.github.io/Website/`, the site appeared without any styling. The browser console showed 404 errors for CSS/JS files.
+
+**Root Cause:** Next.js was generating asset paths starting from root (`/`) instead of the subdirectory (`/Website/`).
+
+Example of broken paths:
+```
+❌ /_next/static/css/app.css        → 404 Not Found
+❌ /_next/static/chunks/main.js     → 404 Not Found
+```
+
+Should be:
+```
+✅ /Website/_next/static/css/app.css
+✅ /Website/_next/static/chunks/main.js
+```
+
+### Solution
+
+Updated `next.config.js` to include `basePath` and `assetPrefix`:
+
+**Before:**
+```javascript
+const nextConfig = {
+  output: 'export',
+  // basePath was commented out
+  // basePath: '/nss-mumbai-website',
+}
+```
+
+**After:**
+```javascript
+const nextConfig = {
+  output: 'export',
+  basePath: '/Website',
+  assetPrefix: '/Website/',
+}
+```
+
+### What These Settings Do
+
+| Setting | Purpose |
+|---------|--------|
+| `basePath` | Prepends `/Website` to all routes and links |
+| `assetPrefix` | Prepends `/Website/` to all static assets (CSS, JS, images) |
+
+### Note for Custom Domains
+
+If you later use a custom domain (e.g., `www.nss-mumbai.org`), you should:
+1. Remove or comment out `basePath`
+2. Remove or comment out `assetPrefix`
 
 ---
 
@@ -249,6 +311,7 @@ The following improvements are identified but not yet implemented:
 
 | Date | File | Change Type | Description |
 |------|------|-------------|-------------|
+| 2026-01-03 | `next.config.js` | Modified | Added basePath and assetPrefix for GitHub Pages |
 | 2026-01-03 | `.github/workflows/webpack.yml` | Deleted | Removed incorrect webpack workflow |
 | 2026-01-03 | `.github/workflows/build.yml` | Created | New Next.js build workflow |
 | 2026-01-03 | `app/layout.tsx` | Modified | Removed inline styles from `<head>` |
