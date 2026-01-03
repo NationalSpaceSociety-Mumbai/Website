@@ -171,6 +171,33 @@ To update content:
 
 This website represents NSS Mumbai's digital presence. For contributions or suggestions, please contact the NSS Mumbai team.
 
+## 🌐 Deployment
+
+This website is configured for easy deployment to **GitHub Pages**.
+
+### Quick Deploy to GitHub Pages
+
+See [GITHUB_QUICKSTART.md](GITHUB_QUICKSTART.md) for a 10-minute deployment guide.
+
+### Deployment Options
+
+1. **GitHub Pages** (Recommended, Free)
+   - See: [GITHUB_QUICKSTART.md](GITHUB_QUICKSTART.md)
+   - Automatic deployment via GitHub Actions
+   - Free custom domain support
+
+2. **Vercel** (Alternative)
+   ```bash
+   npm i -g vercel
+   vercel
+   ```
+
+3. **Netlify** (Alternative)
+   - Build command: `npm run build`
+   - Publish directory: `out`
+
+For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md) and [GITHUB_DEPLOYMENT.md](GITHUB_DEPLOYMENT.md)
+
 ## 📧 Contact
 
 **NSS Mumbai**
