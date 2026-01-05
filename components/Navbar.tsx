@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Menu, X, ChevronDown } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -11,10 +12,22 @@ export default function Navbar() {
     <nav className="fixed w-full z-50 bg-[#020617]/85 backdrop-blur-lg border-b border-[#4B9CD3]/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <Link href="/" className="flex items-center cursor-pointer">
-            <span className="text-2xl font-bold tracking-widest text-white">
-              NSS <span className="text-[#38BDF8]">MUMBAI</span>
-            </span>
+          <Link href="/" className="flex items-center gap-3 cursor-pointer group">
+            <div className="w-12 h-12 relative">
+              <Image
+                src="/images/nss-mumbai-logo.png"
+                alt="NSS Mumbai Logo"
+                width={48}
+                height={48}
+                className="object-contain group-hover:scale-110 transition-transform"
+                unoptimized
+              />
+            </div>
+            <div className="hidden sm:block">
+              <span className="text-xl font-bold tracking-wide text-white">
+                NSS <span className="text-[#38BDF8]">MUMBAI</span>
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Menu */}
