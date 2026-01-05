@@ -2,13 +2,14 @@
 
 import Starfield from '@/components/Starfield'
 import Link from 'next/link'
-import { ChevronDown } from 'lucide-react'
+import { Mail } from 'lucide-react'
 
 export default function HomePage() {
   return (
     <>
       <Starfield />
       
+      {/* Hero Section */}
       <div className="relative z-10 min-h-screen flex items-center justify-center text-center px-4 pt-32 pb-16">
         <div className="max-w-5xl mx-auto animate-fadeIn">
           <div className="mb-6 inline-block px-4 py-1 rounded-full border border-[#38BDF8] bg-[#0B3D91]/30 text-[#38BDF8] text-sm font-semibold tracking-wider uppercase backdrop-blur-sm shadow-[0_0_10px_rgba(56,189,248,0.3)] animate-pulse">
@@ -44,10 +45,33 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-[#38BDF8] z-10">
-        <ChevronDown className="w-8 h-8" />
+
+      {/* Newsletter Section */}
+      <div className="relative z-10 py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-glass p-8 md:p-12 rounded-2xl border border-[#4B9CD3]/30">
+            <div className="text-center mb-8">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#0B3D91] to-[#38BDF8] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Mail className="w-8 h-8 text-white" />
+              </div>
+              <h2 className="text-3xl font-bold text-white mb-4">Stay Connected</h2>
+              <p className="text-gray-300 text-lg">
+                Subscribe to our newsletter for the latest updates on space exploration, events, and exclusive content.
+              </p>
+            </div>
+            
+            {/* Substack Embed */}
+            <div className="relative w-full" style={{ paddingBottom: '53%', height: 0, overflow: 'hidden' }}>
+              <iframe 
+                src="https://nssmumbai.substack.com/embed" 
+                className="absolute top-0 left-0 w-full h-full rounded-lg"
+                frameBorder="0" 
+                scrolling="no"
+                title="Subscribe to NSS Mumbai Newsletter"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </>
   )
