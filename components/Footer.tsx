@@ -2,7 +2,6 @@
 
 import { Linkedin, Twitter, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react'
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function Footer() {
   return (
@@ -13,13 +12,10 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 relative">
-                <Image
+                <img
                   src="/images/nss-mumbai-logo.png"
                   alt="NSS Mumbai Logo"
-                  width={48}
-                  height={48}
-                  className="object-contain"
-                  unoptimized
+                  className="w-12 h-12 object-contain"
                 />
               </div>
               <div>

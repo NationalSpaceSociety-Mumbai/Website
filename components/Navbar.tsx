@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Menu, X, ChevronDown } from 'lucide-react'
-import Image from 'next/image'
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -14,13 +13,10 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           <Link href="/" className="flex items-center gap-3 cursor-pointer group">
             <div className="w-12 h-12 relative">
-              <Image
+              <img
                 src="/images/nss-mumbai-logo.png"
                 alt="NSS Mumbai Logo"
-                width={48}
-                height={48}
-                className="object-contain group-hover:scale-110 transition-transform"
-                unoptimized
+                className="w-12 h-12 object-contain group-hover:scale-110 transition-transform"
               />
             </div>
             <div className="hidden sm:block">
