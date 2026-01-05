@@ -2,18 +2,9 @@
 
 import Starfield from '@/components/Starfield'
 import Link from 'next/link'
-import { Mail, Send } from 'lucide-react'
-import { useState } from 'react'
+import { Mail } from 'lucide-react'
 
 export default function HomePage() {
-  const [email, setEmail] = useState('')
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Open Substack in new tab with email pre-filled
-    window.open(`https://nssmumbai.substack.com/subscribe?email=${encodeURIComponent(email)}`, '_blank')
-  }
-
   return (
     <>
       <Starfield />
@@ -69,34 +60,26 @@ export default function HomePage() {
                   <Mail className="w-8 h-8 text-white" />
                 </div>
                 <h2 className="text-3xl font-bold text-white mb-4">Join the Artemis Generation</h2>
-                <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+                <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-8">
                   Subscribe to our newsletter for the latest updates on space exploration, STEAM outreach programs, and exclusive content from NSS Mumbai.
                 </p>
               </div>
               
-              {/* Custom Newsletter Form */}
-              <form onSubmit={handleSubscribe} className="max-w-xl mx-auto">
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email address"
-                    required
-                    className="flex-1 px-6 py-4 bg-black/40 border border-[#4B9CD3]/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#38BDF8] focus:ring-2 focus:ring-[#38BDF8]/20 transition-all"
-                  />
-                  <button
-                    type="submit"
-                    className="px-8 py-4 bg-gradient-to-r from-[#38BDF8] to-[#0EA5E9] text-white font-bold rounded-lg hover:from-[#0EA5E9] hover:to-[#0284C7] transition-all shadow-lg shadow-sky-500/30 hover:shadow-sky-500/50 flex items-center justify-center gap-2 group"
-                  >
-                    <span>Subscribe</span>
-                    <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </div>
-                <p className="text-xs text-gray-500 mt-4 text-center">
-                  By subscribing, you'll receive updates about our events, publications, and space advocacy initiatives.
-                </p>
-              </form>
+              {/* Embedded Substack Form */}
+              <div className="max-w-xl mx-auto">
+                <iframe 
+                  src="https://nssmumbai.substack.com/embed" 
+                  width="100%" 
+                  height="320"
+                  className="bg-transparent border-0"
+                  frameBorder="0" 
+                  scrolling="no"
+                  title="Subscribe to NSS Mumbai Newsletter"
+                  style={{
+                    background: 'transparent',
+                  }}
+                />
+              </div>
 
               {/* Quick Links */}
               <div className="mt-8 flex flex-wrap justify-center gap-4">
