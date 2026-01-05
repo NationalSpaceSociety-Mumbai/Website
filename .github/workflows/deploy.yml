@@ -32,6 +32,11 @@ jobs:
       - name: Build with Next.js
         run: npm run build
         
+      - name: Verify logo exists
+        run: |
+          echo "Checking if logo exists in build output..."
+          ls -la ./out/images/ || echo "Images folder not found"
+          
       - name: Add .nojekyll file
         run: touch ./out/.nojekyll
         
