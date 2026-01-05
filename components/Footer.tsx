@@ -145,10 +145,10 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-500">
-              © 2026 NSS Mumbai Chapter. <span className="text-[#4B9CD3]">Ad Astra.</span>
+              © 2026 NSS Mumbai Chapter. All rights reserved.
             </p>
             <p className="text-sm text-gray-600">
-              A chapter of the National Space Society (USA)
+              Designed & Built with <span className="text-[#38BDF8]">♥</span> for space exploration
             </p>
           </div>
         </div>
