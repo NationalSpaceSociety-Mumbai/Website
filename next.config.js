@@ -10,11 +10,9 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  // ⚠️ CRITICAL FOR GITHUB PAGES ⚠️
-  // Since deploying to https://nationalspacesociety-mumbai.github.io/Website/
-  // basePath must match the repository name
-  basePath: '/Website',
-  assetPrefix: '/Website/',
+  // basePath only for production (GitHub Pages)
+  basePath: process.env.NODE_ENV === 'production' ? '/Website' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/Website/' : '',
 }
 
 module.exports = nextConfig

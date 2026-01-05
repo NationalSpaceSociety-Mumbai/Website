@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Logo and Description */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 relative">
+              <div className="w-12 h-12 flex items-center justify-center">
                 <img
                   src="/images/nss-mumbai-logo.png"
                   alt="NSS Mumbai Logo"
@@ -19,7 +19,7 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">NSS Mumbai</h3>
+                <h3 className="text-lg font-bold text-white">NSS (USA) - Mumbai</h3>
                 <p className="text-xs text-[#38BDF8]">National Space Society</p>
               </div>
             </div>
