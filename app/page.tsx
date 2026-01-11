@@ -42,42 +42,36 @@ export default function HomePage() {
     <>
       <Starfield />
       
-      {/* Hero Section with Video Background Option */}
+      {/* Hero Section */}
       <div className="relative z-10 min-h-screen flex items-center justify-center text-center px-4 pt-32 pb-16">
-        {/* Optional: Add video background */}
-        {/* <video autoPlay loop muted className="absolute inset-0 w-full h-full object-cover opacity-30 z-0">
-          <source src="/videos/rocket-launch.mp4" type="video/mp4" />
-        </video> */}
-        
-        <div className="max-w-6xl mx-auto animate-fadeIn relative z-10">
-          <div className="mb-6 inline-flex items-center px-6 py-2 rounded-full border-2 border-blue-500/50 bg-blue-500/10 text-blue-400 text-sm font-bold tracking-wider uppercase backdrop-blur-sm animate-pulse-glow">
-            <Rocket className="w-4 h-4 mr-2" />
+        <div className="max-w-5xl mx-auto animate-fadeIn relative z-10">
+          <div className="mb-6 inline-flex items-center px-5 py-2 rounded-full border-2 border-blue-500/50 bg-blue-500/10 text-blue-400 text-xs font-bold tracking-wider uppercase backdrop-blur-sm animate-pulse-glow">
+            <Rocket className="w-3.5 h-3.5 mr-2" />
             Mission: Artemis Generation
           </div>
           
-          <h1 className="text-6xl md:text-9xl font-black tracking-tight mb-8 leading-none">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-tight">
             <span className="block text-white drop-shadow-2xl">CREATING A</span>
-            <span className="block cosmic-gradient drop-shadow-2xl">SPACEFARING</span>
-            <span className="block cosmic-gradient drop-shadow-2xl">CIVILIZATION</span>
+            <span className="block cosmic-gradient drop-shadow-2xl">SPACEFARING CIVILIZATION</span>
           </h1>
           
-          <p className="mt-8 max-w-3xl mx-auto text-xl md:text-2xl text-gray-300 font-light leading-relaxed">
-            The Mumbai Chapter of the National Space Society. 
-            <span className="block mt-2 text-blue-300">Orchestrating the creations of the heart and chiseling the dreams within our minds.</span>
+          <p className="mt-6 max-w-2xl mx-auto text-base md:text-lg text-gray-300 font-light leading-relaxed">
+            The Mumbai Chapter of the National Space Society.
+            <span className="block mt-2">Orchestrating the creations of the heart and chiseling the dreams within our minds.</span>
           </p>
           
-          <div className="mt-14 flex flex-col sm:flex-row justify-center gap-6">
+          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/events"
-              className="group px-10 py-5 btn-primary text-white font-bold rounded-xl text-lg transition-all flex items-center justify-center gap-3"
+              className="group px-6 py-3 btn-primary text-white font-bold rounded-lg text-sm transition-all flex items-center justify-center gap-2"
             >
-              <Calendar className="w-6 h-6" />
+              <Calendar className="w-4 h-4" />
               Upcoming Events
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               href="/about"
-              className="px-10 py-5 btn-secondary text-blue-300 font-bold rounded-xl text-lg transition-all hover:text-white"
+              className="px-6 py-3 btn-secondary text-blue-300 font-bold rounded-lg text-sm transition-all hover:text-white"
             >
               Our Mission
             </Link>
@@ -88,7 +82,7 @@ export default function HomePage() {
       {/* Quick Stats */}
       <div className="relative z-10 py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { icon: Calendar, label: 'Events Hosted', value: '50+', color: 'blue' },
               { icon: Users, label: 'Active Members', value: '1,200+', color: 'purple' },
@@ -96,9 +90,9 @@ export default function HomePage() {
               { icon: Rocket, label: 'Years Active', value: '5+', color: 'orange' }
             ].map((stat, i) => (
               <div key={i} className="glass-cosmic p-6 rounded-2xl text-center card-cosmic transition-all border border-blue-500/20">
-                <stat.icon className={`w-12 h-12 mx-auto mb-4 text-${stat.color}-400`} />
-                <div className="text-4xl font-bold text-white mb-2">{stat.value}</div>
-                <div className="text-gray-400 text-sm">{stat.label}</div>
+                <stat.icon className={`w-10 h-10 mx-auto mb-3 text-${stat.color}-400`} />
+                <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
+                <div className="text-gray-400 text-xs">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -110,10 +104,10 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="flex justify-between items-center mb-12">
             <div>
-              <h2 className="text-4xl font-bold cosmic-gradient mb-2">Upcoming Events</h2>
-              <p className="text-gray-400">Join us in our journey to the stars</p>
+              <h2 className="text-3xl font-bold cosmic-gradient mb-2">Upcoming Events</h2>
+              <p className="text-gray-400 text-sm">Join us in our journey to the stars</p>
             </div>
-            <Link href="/events" className="text-blue-400 hover:text-blue-300 flex items-center gap-2 font-semibold">
+            <Link href="/events" className="text-blue-400 hover:text-blue-300 flex items-center gap-2 font-semibold text-sm">
               View All <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -125,9 +119,9 @@ export default function HomePage() {
                   <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs font-bold border border-blue-500/30">
                     {event.type}
                   </span>
-                  <span className="text-gray-500 text-sm">{event.date}</span>
+                  <span className="text-gray-500 text-xs">{event.date}</span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">{event.title}</h3>
+                <h3 className="text-lg font-bold text-white mb-4">{event.title}</h3>
                 <Link href="/events" className="text-blue-400 hover:text-blue-300 font-semibold text-sm flex items-center gap-2">
                   Register <ArrowRight className="w-4 h-4" />
                 </Link>
