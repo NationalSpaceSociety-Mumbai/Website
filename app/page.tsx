@@ -57,7 +57,7 @@ export default function HomePage() {
           
           <p className="mt-6 max-w-2xl mx-auto text-base md:text-lg text-gray-300 font-light leading-relaxed">
             The Mumbai Chapter of the National Space Society.
-            <span className="block mt-2">Orchestrating the creations of the heart and chiseling the dreams within our minds.</span>
+            <span className="block mt-2 text-blue-300">Empowering humanity's journey to the stars</span>
           </p>
           
           <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
@@ -131,11 +131,10 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Newsletter Section - Resized */}
+      {/* Newsletter Section */}
       <div className="relative z-10 py-16 px-4">
         <div className="max-w-3xl mx-auto">
           <div className="glass-cosmic p-8 md:p-10 rounded-2xl border border-blue-500/30 relative overflow-hidden">
-            {/* Animated cosmic orbs */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-3xl opacity-10 animate-pulse"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-600 rounded-full blur-3xl opacity-10 animate-pulse" style={{ animationDelay: '1s' }}></div>
             
@@ -150,7 +149,6 @@ export default function HomePage() {
                 </p>
               </div>
               
-              {/* Newsletter Form */}
               {!isSuccess ? (
                 <form onSubmit={handleSubscribe} className="max-w-xl mx-auto">
                   <div className="flex flex-col sm:flex-row gap-3 mb-4">
@@ -203,7 +201,6 @@ export default function HomePage() {
                 </div>
               )}
 
-              {/* Additional Info */}
               <div className="mt-6 pt-6 border-t border-blue-500/20 flex flex-wrap justify-center gap-4 text-xs">
                 <a
                   href="https://nssmumbai.substack.com"
