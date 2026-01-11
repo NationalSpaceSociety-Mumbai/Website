@@ -34,6 +34,10 @@ export default function Navbar() {
               Events
             </Link>
 
+            <Link href="/blog" className="text-gray-300 hover:text-blue-400 px-3 py-2 text-sm font-semibold transition-all border-b-2 border-transparent hover:border-blue-400">
+              Blog
+            </Link>
+
             <div className="relative group">
               <button className="text-gray-300 hover:text-blue-400 px-3 py-2 text-sm font-semibold transition-all flex items-center gap-1 border-b-2 border-transparent group-hover:border-blue-400">
                 Resources <ChevronDown className="w-4 h-4" />
@@ -45,11 +49,8 @@ export default function Navbar() {
                 <Link href="/explore/webinar" className="block px-5 py-3 text-gray-300 hover:bg-blue-500/10 hover:text-blue-400 transition-colors">
                   Webinars
                 </Link>
-                <a href="https://open.spotify.com/show/57Nh01m6jJgAqhCTOaQjsJ" target="_blank" rel="noopener noreferrer" className="block px-5 py-3 text-gray-300 hover:bg-blue-500/10 hover:text-blue-400 transition-colors">
+                <a href="https://open.spotify.com/show/57Nh01m6jJgAqhCTOaQjsJ" target="_blank" rel="noopener noreferrer" className="block px-5 py-3 text-gray-300 hover:bg-blue-500/10 hover:text-blue-400 rounded-b-xl transition-colors">
                   Podcast
-                </a>
-                <a href="https://nssmumbai.blogspot.com/" target="_blank" rel="noopener noreferrer" className="block px-5 py-3 text-gray-300 hover:bg-blue-500/10 hover:text-blue-400 rounded-b-xl transition-colors">
-                  Blog
                 </a>
               </div>
             </div>
@@ -111,17 +112,19 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Search Bar - Mobile Optimized */}
+        {/* Search Bar */}
         {searchOpen && (
-          <div className="py-3 sm:py-4 border-t border-blue-500/20">
-            <div className="relative">
-              <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search events, articles..."
-                className="w-full pl-10 sm:pl-12 pr-4 py-2.5 sm:py-3 search-cosmic rounded-lg text-white placeholder-gray-500 focus:outline-none text-sm sm:text-base"
-                autoFocus
-              />
+          <div className="border-t border-blue-500/20 bg-[#0a0e27]/95 backdrop-blur-xl">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+              <div className="relative">
+                <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Search events, articles, resources..."
+                  className="w-full pl-10 sm:pl-12 pr-4 py-2.5 sm:py-3 search-cosmic rounded-lg text-white placeholder-gray-500 focus:outline-none text-sm sm:text-base"
+                  autoFocus
+                />
+              </div>
             </div>
           </div>
         )}
@@ -147,6 +150,15 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             >
               Events
+            </Link>
+
+            {/* Blog */}
+            <Link 
+              href="/blog" 
+              className="block text-white hover:text-blue-400 font-semibold py-3 px-4 rounded-lg hover:bg-blue-500/10 transition-colors" 
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Blog
             </Link>
             
             {/* Resources Dropdown */}
@@ -181,14 +193,6 @@ export default function Navbar() {
                     className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/5 rounded-lg transition-colors text-sm"
                   >
                     Podcast
-                  </a>
-                  <a 
-                    href="https://nssmumbai.blogspot.com/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/5 rounded-lg transition-colors text-sm"
-                  >
-                    Blog
                   </a>
                 </div>
               )}
@@ -267,7 +271,7 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* Search Bar - Mobile/Desktop */}
+      {/* Search Bar */}
       {searchOpen && (
         <div className="border-t border-blue-500/20 bg-[#0a0e27]/95 backdrop-blur-xl">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
