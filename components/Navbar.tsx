@@ -2,11 +2,13 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Menu, X, ChevronDown, Search } from 'lucide-react'
+import { Menu, X, ChevronDown, ChevronRight, Search } from 'lucide-react'
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
+  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false)
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false)
 
   return (
     <nav className="fixed w-full z-50 bg-[#000000]/90 backdrop-blur-xl border-b border-blue-500/20">
@@ -125,52 +127,159 @@ export default function Navbar() {
         )}
       </div>
 
-      {/* Mobile Menu - Optimized */}
+      {/* Mobile Menu - Hamburger with Dropdowns */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0a0e27]/98 border-t border-blue-500/20 max-h-[80vh] overflow-y-auto">
-          <div className="px-4 py-6 space-y-1">
-            <Link href="/" className="block text-white hover:text-blue-400 font-semibold py-3 px-4 rounded-lg hover:bg-blue-500/10 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+        <div className="lg:hidden bg-[#0a0e27]/98 backdrop-blur-xl border-t border-blue-500/20 max-h-[calc(100vh-4rem)] overflow-y-auto">
+          <div className="px-4 py-6 space-y-2">
+            {/* Home */}
+            <Link 
+              href="/" 
+              className="block text-white hover:text-blue-400 font-semibold py-3 px-4 rounded-lg hover:bg-blue-500/10 transition-colors" 
+              onClick={() => setMobileMenuOpen(false)}
+            >
               Home
             </Link>
-            <Link href="/events" className="block text-white hover:text-blue-400 font-semibold py-3 px-4 rounded-lg hover:bg-blue-500/10 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+            
+            {/* Events */}
+            <Link 
+              href="/events" 
+              className="block text-white hover:text-blue-400 font-semibold py-3 px-4 rounded-lg hover:bg-blue-500/10 transition-colors" 
+              onClick={() => setMobileMenuOpen(false)}
+            >
               Events
             </Link>
             
-            <div className="py-2">
-              <p className="text-gray-500 text-xs font-bold uppercase px-4 mb-2">Resources</p>
-              <Link href="/explore/magazine" className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                Magazine
-              </Link>
-              <Link href="/explore/webinar" className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                Webinars
-              </Link>
-              <a href="https://nssmumbai.blogspot.com/" target="_blank" rel="noopener noreferrer" className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/10 rounded-lg transition-colors">
-                Blog
-              </a>
+            {/* Resources Dropdown */}
+            <div>
+              <button
+                onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
+                className="w-full flex items-center justify-between text-white hover:text-blue-400 font-semibold py-3 px-4 rounded-lg hover:bg-blue-500/10 transition-colors"
+              >
+                <span>Resources</span>
+                <ChevronRight className={`w-5 h-5 transition-transform ${mobileResourcesOpen ? 'rotate-90' : ''}`} />
+              </button>
+              {mobileResourcesOpen && (
+                <div className="ml-4 mt-1 space-y-1 border-l-2 border-blue-500/30 pl-4">
+                  <Link 
+                    href="/explore/magazine" 
+                    className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/5 rounded-lg transition-colors text-sm" 
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Magazine
+                  </Link>
+                  <Link 
+                    href="/explore/webinar" 
+                    className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/5 rounded-lg transition-colors text-sm" 
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Webinars
+                  </Link>
+                  <a 
+                    href="https://open.spotify.com/show/57Nh01m6jJgAqhCTOaQjsJ" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/5 rounded-lg transition-colors text-sm"
+                  >
+                    Podcast
+                  </a>
+                  <a 
+                    href="https://nssmumbai.blogspot.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/5 rounded-lg transition-colors text-sm"
+                  >
+                    Blog
+                  </a>
+                </div>
+              )}
             </div>
             
-            <div className="py-2">
-              <p className="text-gray-500 text-xs font-bold uppercase px-4 mb-2">About</p>
-              <Link href="/about" className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                Mission & Vision
-              </Link>
-              <Link href="/about/team" className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                Our Team
-              </Link>
-              <Link href="/about/advisory" className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                Advisory Board
-              </Link>
-              <Link href="/about/collaboration" className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                Collaboration
-              </Link>
-              <Link href="/gallery" className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/10 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                Gallery
-              </Link>
+            {/* About Dropdown */}
+            <div>
+              <button
+                onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+                className="w-full flex items-center justify-between text-white hover:text-blue-400 font-semibold py-3 px-4 rounded-lg hover:bg-blue-500/10 transition-colors"
+              >
+                <span>About</span>
+                <ChevronRight className={`w-5 h-5 transition-transform ${mobileAboutOpen ? 'rotate-90' : ''}`} />
+              </button>
+              {mobileAboutOpen && (
+                <div className="ml-4 mt-1 space-y-1 border-l-2 border-blue-500/30 pl-4">
+                  <Link 
+                    href="/about" 
+                    className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/5 rounded-lg transition-colors text-sm" 
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Mission & Vision
+                  </Link>
+                  <Link 
+                    href="/about/team" 
+                    className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/5 rounded-lg transition-colors text-sm" 
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Our Team
+                  </Link>
+                  <Link 
+                    href="/about/advisory" 
+                    className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/5 rounded-lg transition-colors text-sm" 
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Advisory Board
+                  </Link>
+                  <Link 
+                    href="/about/collaboration" 
+                    className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/5 rounded-lg transition-colors text-sm" 
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Collaboration
+                  </Link>
+                  <Link 
+                    href="/gallery" 
+                    className="block text-gray-300 hover:text-blue-400 py-2.5 px-4 hover:bg-blue-500/5 rounded-lg transition-colors text-sm" 
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Gallery
+                  </Link>
+                </div>
+              )}
             </div>
             
-            <Link href="/contact" className="block mt-4 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-center rounded-lg hover:from-blue-500 hover:to-purple-500 transition-all" onClick={() => setMobileMenuOpen(false)}>
-              JOIN NSS
+            {/* Contact */}
+            <Link 
+              href="/contact" 
+              className="block text-white hover:text-blue-400 font-semibold py-3 px-4 rounded-lg hover:bg-blue-500/10 transition-colors" 
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Contact
             </Link>
+            
+            {/* JOIN NSS Button */}
+            <div className="pt-4 mt-4 border-t border-blue-500/20">
+              <Link 
+                href="/contact" 
+                className="block px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-center rounded-xl hover:from-blue-500 hover:to-purple-500 transition-all shadow-[0_0_20px_rgba(59,130,246,0.4)]" 
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                JOIN NSS
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Search Bar - Mobile/Desktop */}
+      {searchOpen && (
+        <div className="border-t border-blue-500/20 bg-[#0a0e27]/95 backdrop-blur-xl">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+            <div className="relative">
+              <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search events, articles, resources..."
+                className="w-full pl-10 sm:pl-12 pr-4 py-2.5 sm:py-3 search-cosmic rounded-lg text-white placeholder-gray-500 focus:outline-none text-sm sm:text-base"
+                autoFocus
+              />
+            </div>
           </div>
         </div>
       )}
