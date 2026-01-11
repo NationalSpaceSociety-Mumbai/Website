@@ -5,55 +5,55 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#020617] border-t border-[#4B9CD3]/20 py-16 px-4 z-10">
+    <footer className="relative bg-[#020617] border-t border-[#4B9CD3]/20 py-12 sm:py-16 px-4 z-10">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
           {/* Logo and Description */}
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
+          <div className="text-center sm:text-left">
+            <div className="flex items-center gap-3 justify-center sm:justify-start mb-4">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
                 <img
                   src={`${process.env.NODE_ENV === 'production' ? '/Website' : ''}/images/nss-mumbai-logo.png`}
                   alt="NSS Mumbai Logo"
-                  className="w-12 h-12 object-contain"
+                  className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
                 />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-white">NSS (USA) - Mumbai</h3>
-                <p className="text-xs text-[#38BDF8]">National Space Society</p>
+                <h3 className="text-base sm:text-lg font-bold text-white">NSS (USA) - Mumbai</h3>
+                <p className="text-[10px] sm:text-xs text-[#38BDF8]">National Space Society</p>
               </div>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
               Promoting space expansion and building a hopeful future for humanity through space advocacy and STEAM outreach.
             </p>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-white font-bold text-lg mb-6">Quick Links</h4>
-            <ul className="space-y-3">
+          <div className="text-center sm:text-left">
+            <h4 className="text-white font-bold text-base sm:text-lg mb-4 sm:mb-6">Quick Links</h4>
+            <ul className="space-y-2 sm:space-y-3">
               <li>
-                <Link href="/about" className="text-gray-400 hover:text-[#38BDF8] transition-colors text-sm">
+                <Link href="/about" className="text-gray-400 hover:text-[#38BDF8] transition-colors text-xs sm:text-sm">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/about/team" className="text-gray-400 hover:text-[#38BDF8] transition-colors text-sm">
+                <Link href="/about/team" className="text-gray-400 hover:text-[#38BDF8] transition-colors text-xs sm:text-sm">
                   Team
                 </Link>
               </li>
               <li>
-                <Link href="/explore/magazine" className="text-gray-400 hover:text-[#38BDF8] transition-colors text-sm">
+                <Link href="/explore/magazine" className="text-gray-400 hover:text-[#38BDF8] transition-colors text-xs sm:text-sm">
                   Magazine
                 </Link>
               </li>
               <li>
-                <Link href="/explore/webinar" className="text-gray-400 hover:text-[#38BDF8] transition-colors text-sm">
+                <Link href="/explore/webinar" className="text-gray-400 hover:text-[#38BDF8] transition-colors text-xs sm:text-sm">
                   Webinars
                 </Link>
               </li>
               <li>
-                <a href="https://nssmumbai.blogspot.com/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#38BDF8] transition-colors text-sm">
+                <a href="https://nssmumbai.blogspot.com/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#38BDF8] transition-colors text-xs sm:text-sm">
                   Blog
                 </a>
               </li>
@@ -61,53 +61,53 @@ export default function Footer() {
           </div>
 
           {/* Connect */}
-          <div>
-            <h4 className="text-white font-bold text-lg mb-6">Connect</h4>
-            <div className="grid grid-cols-4 gap-3 mb-6">
+          <div className="text-center sm:text-left sm:col-span-2 lg:col-span-1">
+            <h4 className="text-white font-bold text-base sm:text-lg mb-4 sm:mb-6">Connect</h4>
+            <div className="grid grid-cols-4 sm:grid-cols-4 gap-2 sm:gap-3 mb-4 sm:mb-6 max-w-xs mx-auto sm:mx-0">
               <a
                 href="https://www.linkedin.com/company/nssusamumbai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white/5 border border-gray-800 rounded-lg flex items-center justify-center hover:bg-[#0B3D91] hover:border-[#38BDF8] transition-all group"
+                className="w-11 h-11 sm:w-12 sm:h-12 bg-white/5 border border-gray-800 rounded-lg flex items-center justify-center hover:bg-[#0B3D91] hover:border-[#38BDF8] transition-all group"
                 title="LinkedIn"
               >
-                <Linkedin className="w-5 h-5 text-gray-400 group-hover:text-white" />
+                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white" />
               </a>
               <a
                 href="https://twitter.com/nss_mumbai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white/5 border border-gray-800 rounded-lg flex items-center justify-center hover:bg-[#0B3D91] hover:border-[#38BDF8] transition-all group"
+                className="w-11 h-11 sm:w-12 sm:h-12 bg-white/5 border border-gray-800 rounded-lg flex items-center justify-center hover:bg-[#0B3D91] hover:border-[#38BDF8] transition-all group"
                 title="Twitter"
               >
-                <Twitter className="w-5 h-5 text-gray-400 group-hover:text-white" />
+                <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white" />
               </a>
               <a
                 href="https://www.facebook.com/NSSUSA.Mumbai/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white/5 border border-gray-800 rounded-lg flex items-center justify-center hover:bg-[#0B3D91] hover:border-[#38BDF8] transition-all group"
+                className="w-11 h-11 sm:w-12 sm:h-12 bg-white/5 border border-gray-800 rounded-lg flex items-center justify-center hover:bg-[#0B3D91] hover:border-[#38BDF8] transition-all group"
                 title="Facebook"
               >
-                <Facebook className="w-5 h-5 text-gray-400 group-hover:text-white" />
+                <Facebook className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white" />
               </a>
               <a
                 href="https://www.instagram.com/nationalspacesociety_mumbai/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white/5 border border-gray-800 rounded-lg flex items-center justify-center hover:bg-[#0B3D91] hover:border-[#38BDF8] transition-all group"
+                className="w-11 h-11 sm:w-12 sm:h-12 bg-white/5 border border-gray-800 rounded-lg flex items-center justify-center hover:bg-[#0B3D91] hover:border-[#38BDF8] transition-all group"
                 title="Instagram"
               >
-                <Instagram className="w-5 h-5 text-gray-400 group-hover:text-white" />
+                <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white" />
               </a>
               <a
                 href="https://open.spotify.com/show/57Nh01m6jJgAqhCTOaQjsJ"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white/5 border border-gray-800 rounded-lg flex items-center justify-center hover:bg-[#0B3D91] hover:border-[#38BDF8] transition-all group"
+                className="w-11 h-11 sm:w-12 sm:h-12 bg-white/5 border border-gray-800 rounded-lg flex items-center justify-center hover:bg-[#0B3D91] hover:border-[#38BDF8] transition-all group"
                 title="Spotify Podcast"
               >
-                <svg className="w-5 h-5 text-gray-400 group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
                 </svg>
               </a>
@@ -115,24 +115,24 @@ export default function Footer() {
                 href="https://www.youtube.com/@nationalspacesociety_mumbai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white/5 border border-gray-800 rounded-lg flex items-center justify-center hover:bg-[#0B3D91] hover:border-[#38BDF8] transition-all group"
+                className="w-11 h-11 sm:w-12 sm:h-12 bg-white/5 border border-gray-800 rounded-lg flex items-center justify-center hover:bg-[#0B3D91] hover:border-[#38BDF8] transition-all group"
                 title="YouTube"
               >
-                <Youtube className="w-5 h-5 text-gray-400 group-hover:text-white" />
+                <Youtube className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white" />
               </a>
               <a
                 href="https://chat.whatsapp.com/I56FM6B8zaRA0ETvwKSDHf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-white/5 border border-gray-800 rounded-lg flex items-center justify-center hover:bg-[#0B3D91] hover:border-[#38BDF8] transition-all group"
+                className="w-11 h-11 sm:w-12 sm:h-12 bg-white/5 border border-gray-800 rounded-lg flex items-center justify-center hover:bg-[#0B3D91] hover:border-[#38BDF8] transition-all group"
                 title="WhatsApp"
               >
-                <MessageCircle className="w-5 h-5 text-gray-400 group-hover:text-white" />
+                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white" />
               </a>
             </div>
-            <p className="text-sm text-gray-500">
+            <p className="text-xs sm:text-sm text-gray-500 text-center sm:text-left">
               <span className="inline-flex items-center gap-1">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
                 Mumbai, Maharashtra, India
@@ -142,12 +142,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-gray-500">
+        <div className="border-t border-gray-800 pt-6 sm:pt-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4 text-center sm:text-left">
+            <p className="text-xs sm:text-sm text-gray-500">
               © 2026 NSS Mumbai Chapter. All rights reserved.
             </p>
-            <p className="text-sm text-gray-600">
+            <p className="text-xs sm:text-sm text-gray-600">
               Designed & Built with <span className="text-[#38BDF8]">♥</span> for space exploration
             </p>
           </div>
