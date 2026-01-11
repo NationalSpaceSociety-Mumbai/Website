@@ -24,9 +24,12 @@ export default function Starfield() {
         this.z = initial ? Math.random() * width : width
         this.velocity = 0.15
         const rand = Math.random()
-        if (rand > 0.97) this.color = '#38BDF8'
-        else if (rand > 0.70) this.color = '#4B9CD3'
-        else this.color = '#FFFFFF'
+        // Cosmic color palette
+        if (rand > 0.98) this.color = '#06b6d4' // Cyan
+        else if (rand > 0.95) this.color = '#8b5cf6' // Purple
+        else if (rand > 0.90) this.color = '#3b82f6' // Blue
+        else if (rand > 0.88) this.color = '#f59e0b' // Orange (Mars)
+        else this.color = '#FFFFFF' // White
       }
       update() {
         this.z -= this.velocity * 20
@@ -52,11 +55,11 @@ export default function Starfield() {
     }
 
     const stars: Star[] = []
-    for (let i = 0; i < 500; i++) stars.push(new Star(true))
+    for (let i = 0; i < 600; i++) stars.push(new Star(true))
 
     function animate() {
       if (!ctx || !canvas) return
-      ctx.fillStyle = '#020617'
+      ctx.fillStyle = '#000000'
       ctx.fillRect(0, 0, width, height)
       stars.forEach(star => { star.update(); star.draw(ctx) })
       requestAnimationFrame(animate)
