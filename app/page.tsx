@@ -131,29 +131,29 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Newsletter Section */}
-      <div className="relative z-10 py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="glass-cosmic p-10 md:p-16 rounded-3xl border border-blue-500/30 relative overflow-hidden">
+      {/* Newsletter Section - Resized */}
+      <div className="relative z-10 py-16 px-4">
+        <div className="max-w-3xl mx-auto">
+          <div className="glass-cosmic p-8 md:p-10 rounded-2xl border border-blue-500/30 relative overflow-hidden">
             {/* Animated cosmic orbs */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-3xl opacity-10 animate-pulse"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-600 rounded-full blur-3xl opacity-10 animate-pulse" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-3xl opacity-10 animate-pulse"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-600 rounded-full blur-3xl opacity-10 animate-pulse" style={{ animationDelay: '1s' }}></div>
             
             <div className="relative z-10">
-              <div className="text-center mb-10">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
-                  <Mail className="w-10 h-10 text-white" />
+              <div className="text-center mb-8">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-glow">
+                  <Mail className="w-7 h-7 text-white" />
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Join the Artemis Generation</h2>
-                <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-                  Get exclusive updates on space exploration, STEAM programs, upcoming events, and be part of humanity's journey to the cosmos.
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Join the Artemis Generation</h2>
+                <p className="text-gray-300 text-sm md:text-base max-w-xl mx-auto">
+                  Get exclusive updates on space exploration, STEAM programs, and upcoming events.
                 </p>
               </div>
               
               {/* Newsletter Form */}
               {!isSuccess ? (
-                <form onSubmit={handleSubscribe} className="max-w-2xl mx-auto">
-                  <div className="flex flex-col sm:flex-row gap-4 mb-6">
+                <form onSubmit={handleSubscribe} className="max-w-xl mx-auto">
+                  <div className="flex flex-col sm:flex-row gap-3 mb-4">
                     <input
                       type="email"
                       value={email}
@@ -161,40 +161,38 @@ export default function HomePage() {
                       placeholder="your.email@example.com"
                       required
                       disabled={isSubmitting}
-                      className="flex-1 px-6 py-5 bg-[#0a0e27]/90 border-2 border-blue-500/30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all disabled:opacity-50 text-lg"
+                      className="flex-1 px-5 py-3 bg-[#0a0e27]/90 border border-blue-500/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all disabled:opacity-50"
                     />
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl hover:from-blue-500 hover:to-purple-500 transition-all shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:shadow-[0_0_50px_rgba(59,130,246,0.6)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 group min-w-[180px] text-lg"
+                      className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-lg hover:from-blue-500 hover:to-purple-500 transition-all shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 group min-w-[140px]"
                     >
                       {isSubmitting ? (
                         <>
-                          <div className="w-6 h-6 border-3 border-white/30 border-t-white rounded-full animate-spin"></div>
-                          <span>Subscribing...</span>
+                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                          <span>Sending...</span>
                         </>
                       ) : (
                         <>
                           <span>Subscribe</span>
-                          <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                          <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </>
                       )}
                     </button>
                   </div>
-                  <p className="text-sm text-gray-500 text-center leading-relaxed">
-                    By subscribing, you'll receive updates about events, publications, and space advocacy. 
-                    <br className="hidden sm:block" />
-                    Check your inbox for a confirmation email after subscribing.
+                  <p className="text-xs text-gray-500 text-center">
+                    You'll receive a confirmation email. We respect your privacy.
                   </p>
                 </form>
               ) : (
-                <div className="max-w-xl mx-auto text-center py-10">
-                  <div className="inline-flex items-center justify-center w-20 h-20 bg-green-500/20 border-3 border-green-400 rounded-full mb-6 animate-pulse">
-                    <CheckCircle className="w-10 h-10 text-green-400" />
+                <div className="max-w-lg mx-auto text-center py-6">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-green-500/20 border-2 border-green-400 rounded-full mb-4">
+                    <CheckCircle className="w-8 h-8 text-green-400" />
                   </div>
-                  <h3 className="text-3xl font-bold text-white mb-3">Check Your Email!</h3>
-                  <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-                    We've sent a confirmation link to your inbox. Click it to complete your subscription and join the cosmic community.
+                  <h3 className="text-2xl font-bold text-white mb-2">Check Your Email!</h3>
+                  <p className="text-gray-300 mb-4 text-sm">
+                    We've sent a confirmation link. Click it to complete your subscription.
                   </p>
                   <button
                     onClick={() => setIsSuccess(false)}
@@ -206,23 +204,23 @@ export default function HomePage() {
               )}
 
               {/* Additional Info */}
-              <div className="mt-10 pt-8 border-t border-blue-500/20 flex flex-wrap justify-center gap-6 text-sm">
+              <div className="mt-6 pt-6 border-t border-blue-500/20 flex flex-wrap justify-center gap-4 text-xs">
                 <a
                   href="https://nssmumbai.substack.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 transition-colors font-semibold flex items-center gap-2"
+                  className="text-blue-400 hover:text-blue-300 transition-colors font-semibold flex items-center gap-1"
                 >
-                  <BookOpen className="w-4 h-4" />
-                  Read Past Newsletters
+                  <BookOpen className="w-3.5 h-3.5" />
+                  Past Newsletters
                 </a>
                 <span className="text-gray-700">•</span>
                 <Link
                   href="/contact"
-                  className="text-blue-400 hover:text-blue-300 transition-colors font-semibold flex items-center gap-2"
+                  className="text-blue-400 hover:text-blue-300 transition-colors font-semibold flex items-center gap-1"
                 >
-                  <Mail className="w-4 h-4" />
-                  Contact Team
+                  <Mail className="w-3.5 h-3.5" />
+                  Contact
                 </Link>
               </div>
             </div>
