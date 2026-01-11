@@ -57,7 +57,10 @@ export default function HomePage() {
           
           <p className="mt-6 max-w-2xl mx-auto text-base md:text-lg text-gray-300 font-light leading-relaxed">
             The Mumbai Chapter of the National Space Society.
-            <span className="block mt-2 text-blue-300">Empowering humanity's journey to the stars</span>
+          </p>
+          
+          <p className="mt-4 text-lg md:text-xl text-white italic font-light">
+            "Empowering humanity's journey to the stars"
           </p>
           
           <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
